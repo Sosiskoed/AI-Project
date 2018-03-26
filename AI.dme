@@ -1,0 +1,30 @@
+// DM Environment file for AI.dme.
+// All manual changes should be made outside the BEGIN_ and END_ blocks.
+// New source code should be placed in .dm files: choose File/New --> Code File.
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+#define FILE_DIR "icons"
+// END_FILE_DIR
+
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+
+// BEGIN_INCLUDE
+#include "code\global_world.dm"
+#include "code\isomove.dm"
+#include "code\mobs.dm"
+#include "code\objects.dm"
+#include "code\text_proc.dm"
+#include "code\turfs.dm"
+#include "code\AI\life.dm"
+#include "code\AI\reactions.dm"
+#include "code\AI\settings.dm"
+#include "code\AI\database\interactions.dm"
+#include "code\AI\database\saveload.dm"
+#include "maps\action field.dmm"
+// END_INCLUDE
+
