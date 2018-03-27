@@ -35,23 +35,23 @@ mob/Move()
 				visible_walls -= W
 
 		for(var/obj/wall/W in view(world.view*2))
-			if( (W in view(1)) && ((W.x > src.x && W.y <= src.y) || (W.y < src.y && W.x >= src.x)) )
-				if(W in visible_walls)
-					client.images -= visible_walls[W]
-					visible_walls -= W
+			if(W in visible_walls)
+				var/image/I = visible_walls[W]
+				if( (W in view(1)) && ((W.x > src.x && W.y <= src.y) || (W.y < src.y && W.x >= src.x)) )
+					I.alpha = round(W.base_alpha/4)
 
-			else if( (W in view(1)) && (W.x > src.x && W.y > src.y))
-				if((W in visible_walls) && W.dir == EAST)
-					client.images -= visible_walls[W]
-					visible_walls -= W
+				else if( (W in view(1)) && (W.x > src.x && W.y > src.y))
+					if(W.dir == EAST)
+						I.alpha = round(W.base_alpha/4)
 
 
-			else if( (W in view(1)) && (W.y < src.y && W.x < src.x))
-				if((W in visible_walls) && W.dir == SOUTH)
-					client.images -= visible_walls[W]
-					visible_walls -= W
+				else if( (W in view(1)) && (W.y < src.y && W.x < src.x))
+					if(W.dir == SOUTH)
+						I.alpha = round(W.base_alpha/4)
+
+				else if ( !(W in view(1)) )
+					I.alpha = W.base_alpha
 
 			else
-				if( !(W in visible_walls) )
-					visible_walls[W] = image(W.base_icon, W)
-					client.images += visible_walls[W]
+				visible_walls[W] = image(W.base_icon, W)
+				client.images += visible_walls[W]
