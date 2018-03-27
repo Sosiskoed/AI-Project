@@ -1,4 +1,2 @@
-goodbye|80_100
-goodluck|75_100
-bye|70_100
 
+len = 0

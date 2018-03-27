@@ -67,3 +67,6 @@ proc
 			if(copytext(text, i, i+2)=="  " || (copytext(text, i, i+1)!=" " && k<65 && k>90 && k<97 && k>122))
 				text = copytext(text, 1, i)+copytext(text, i+2)
 			return text
+
+	distance(var/atom/A, var/atom/B)
+		return sqrt( (A.x-B.x)*(A.x-B.x) + (A.y-B.y)*(A.y-B.y) )

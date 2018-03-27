@@ -22,6 +22,7 @@
 #include "code\turfs.dm"
 #include "code\AI\life.dm"
 #include "code\AI\reactions.dm"
+#include "code\AI\search_path.dm"
 #include "code\AI\settings.dm"
 #include "code\AI\database\interactions.dm"
 #include "code\AI\database\saveload.dm"

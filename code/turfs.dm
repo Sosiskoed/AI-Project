@@ -9,6 +9,7 @@ obj
 		icon = 'walls.dmi'
 		icon_state = "wall"
 		opacity = 1
+		var/icon/base_icon
 
 		proc/dif_dir(var/mob/M)
 			if(dir==SOUTH && y-M.y==1)	return 0
@@ -21,3 +22,9 @@ obj
 			if(dif_dir(O)==0)
 				O.Bump(src)
 			else ..()
+
+		New()
+			..()
+			base_icon = new/icon(icon, icon_state, dir)
+			icon = null
+

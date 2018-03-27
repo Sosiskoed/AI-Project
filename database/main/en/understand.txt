@@ -1,4 +1,2 @@
-understand|90_100
-ok|85_100
-yes|65_100
 
+len = 0
