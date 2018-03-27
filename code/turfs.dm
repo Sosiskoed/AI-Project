@@ -1,5 +1,5 @@
 turf
-	icon = 'turfs.dmi'
+	icon = 'icons/turfs.dmi'
 
 	floor
 		icon_state = "floor"
@@ -8,7 +8,7 @@ turf
 
 obj
 	wall
-		icon = 'walls.dmi'
+		icon = 'icons/walls.dmi'
 		icon_state = "wall"
 		density = 1
 		opacity = 1

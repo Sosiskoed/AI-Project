@@ -1,6 +1,6 @@
 obj
 	energy_trigger
-		icon = 'obj.dmi'
+		icon = 'icons/obj.dmi'
 		icon_state = "emachine_on"
 		var/on = 1
 		var/block = 0
