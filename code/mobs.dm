@@ -57,7 +57,7 @@ mob
 		stat("global FPS: ", ttl)
 
 
-	icon = 'mobs.dmi'
+	icon = 'icons/mobs.dmi'
 
 	player
 		icon_state = "player"
