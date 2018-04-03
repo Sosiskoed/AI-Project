@@ -11,13 +11,18 @@ mob/New()
 
 mob
 	var/dirs = ""
+	var/in_move = 0
 
 	//proc
 	//	north_key
 	Move(var/location)
-		walk_to(src, location,,,32)
+		if(in_move)	return
+		in_move = 1
+		walk_to(src, location,,,64)
 		sleep(max_speed-speed + 1)  //if fly or run, -1
+		in_move = 0
 		..()
+
 
 mob/New()
 	..()
