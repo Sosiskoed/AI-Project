@@ -3,11 +3,13 @@ turf
 
 	floor
 		icon_state = "floor"
+		name = "floor"
 
 
 
 obj
 	wall
+		name = "wall"
 		icon = 'icons/walls.dmi'
 		icon_state = "wall"
 		density = 1
@@ -29,3 +31,20 @@ obj
 			icon = null
 			base_alpha = alpha
 
+obj
+	wall
+		south
+			dir = 2
+			layer = 4.2
+
+		east
+			dir = 4
+			layer = 4.2
+
+		north
+			dir = 1
+			layer = 4.1
+
+		west
+			dir = 8
+			layer = 4.1
