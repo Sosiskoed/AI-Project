@@ -8,12 +8,14 @@
 // BEGIN_FILE_DIR
 #define FILE_DIR .
 #define FILE_DIR "icons"
+#define FILE_DIR "icons/turfs"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
 // END_PREFERENCES
 
 // BEGIN_INCLUDE
+#include "code\doors.dm"
 #include "code\global_world.dm"
 #include "code\isomove.dm"
 #include "code\mobs.dm"
