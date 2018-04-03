@@ -3,6 +3,7 @@ turf
 
 	floor
 		icon_state = "floor"
+		name = "floor"
 
 		plate
 			icon_state = "plate"
@@ -92,16 +93,3 @@ obj
 			name = "giant window"
 			opacity = 0
 			icon_state = "glass_wall"
-
-			south
-				dir = SOUTH
-				layer = 4.2
-			north
-				dir = NORTH
-				layer = 4.1
-			west
-				dir = WEST
-				layer = 4.1
-			east
-				dir = EAST
-				layer = 4.2
