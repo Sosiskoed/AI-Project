@@ -1,17 +1,42 @@
-"a" = (/turf/wall,/area)
-"b" = (/turf/floor,/area)
-"c" = (/mob/ai,/turf/floor,/area)
-"d" = (/mob/player,/turf/floor,/area)
+"a" = (/turf/floor,/area)
+"b" = (/obj/wall/concrete/west,/obj/wall/concrete/north,/turf/floor,/area)
+"c" = (/obj/wall/concrete/north,/turf/floor,/area)
+"d" = (/obj/wall/concrete/north,/obj/wall/concrete/east,/turf/floor,/area)
+"e" = (/obj/wall/concrete/west,/turf/floor,/area)
+"f" = (/obj/wall/concrete/east,/turf/floor,/area)
+"g" = (/obj/energy_trigger,/turf/floor,/area)
+"h" = (/mob/ai,/turf/floor,/area)
+"i" = (/mob/player,/turf/floor,/area)
+"j" = (/obj/wall/concrete/south,/obj/wall/concrete/west,/turf/floor,/area)
+"k" = (/obj/wall/concrete/south,/turf/floor,/area)
+"l" = (/obj/wall/concrete/south,/obj/wall/concrete/east,/turf/floor,/area)
+"m" = (/turf/floor/darkgrass,/area)
+"n" = (/turf/floor/lakewater,/area)
+"o" = (/obj/wall{tag = "icon-wall (EAST)"; icon_state = "wall"; dir = 4},/turf/floor/darkgrass,/area)
+"p" = (/obj/tree,/turf/floor/darkgrass,/area)
+"q" = (/obj/tree/dead,/turf/floor/darkgrass,/area)
+"r" = (/obj/tree/pine,/turf/floor/darkgrass,/area)
+"s" = (/obj/tree/larch,/turf/floor/darkgrass,/area)
 
 (1,1,1) = {"
-aaaaaaaaaa
-abbbbbbbba
-abbbbbbbba
-abbbbbbbba
-abcbbbbdba
-abbbbbbbba
-abbbbbbbba
-abbbbbbbba
-abbbbbbbba
-aaaaaaaaaa
+mmmmmmmmmmmmmmmmmmmm
+mmmmmmmmmmmmmmmmmmmm
+mmmmmmmmmmmmmmmmmmmm
+mmmmmmpmmmmmmmqmmmmm
+rmmmmmmmmmmmmmmmmmmm
+mmmmmbccccccccdmpmmm
+mmmmmeaaaaaaaafmmmmm
+mpmmmeaaagaaaafmmmmm
+mmmmmeaaaaaaaafmmmmm
+mmmmmaahaaaaiafmmmmm
+mmmmmeaaaaaaaafmmqmm
+mmmmmeaaaaaaaafmmmmm
+mmmmmeaaaaaaaafmmmmm
+mrmmmeaaaaaaaafmmmmm
+mmmmmjkkkkkkkklmmmmm
+mmmnnnmmmmmmmmmmmqmm
+mmmnnnmmmmmmmmsmmmmm
+mmmommmmmmmmmmmmmmmm
+mmmmmmmmmmmmmmmmmmmm
+mmmmmsmmmrmmmsmmmmmm
 "}

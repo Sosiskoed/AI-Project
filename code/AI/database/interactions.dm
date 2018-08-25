@@ -22,12 +22,14 @@ proc
 		for(var/datum/word_category/ai1 in AI1)
 			AI2 += ai1.words
 
-		for(var/datum/word/ai2 in AI2)
-			if(probe(AI2)>=min_p && probe(AI2)<=max_p)
+
+
+		for(var/datum/word/ai3 in AI2)
+			if(probe(ai3)>=min_p && probe(ai3)<=max_p)
 				switch(neuron)
-					if(1)	LIST += AI2.word
-					if(2)	LIST += probe(AI2)
-					else	LIST += AI2
+					if(1)	LIST += ai3.word
+					if(2)	LIST += probe(ai3)
+					else	LIST += ai3
 		return LIST
 
 
@@ -116,7 +118,7 @@ proc
 		var/datum/word/AI2
 		while(!AI2 && probe >= -step)
 			probe -= step
-			var/list/datum/word/LIST = list_words_from_db(category, probe, neuron=0)
+			var/list/datum/word/LIST = list_words_from_db(category, probe, neuron=0, lang=lang)
 			if(length(LIST))	AI2 = pick(LIST)
 		//world << AI2.word
 		if(!AI2)	return 0

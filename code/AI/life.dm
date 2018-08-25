@@ -9,6 +9,7 @@ mob/ai
 	var/list/friends = list()
 	var/waiting_answer = 0
 	var/list/last_things = list()
+	var/last_log = list()
 
 
 	New()
@@ -59,17 +60,32 @@ mob/ai
 			var/input_log = ""//Лог, он же тип ситуации. Ограничимся последними 100 действиями+обозначение других логов каким нибудь 16-ричным кодом(Или лучше 38-ричным?)
 			var/list/temp_list_logs = list()
 			var/list/question_words = splittext(total_sanitize(text), " ")//Сначала нужно разделить все на слова
-
+			var/list/input_neurons = list()
 
 
 			for(var/word in question_words)//-1 [ ... ]
+				//Очистка от всех лишних знаков
+				word = lowertext(word)
+				Start
+				for(var/l=1, l<=lentext(word), l++)
+					if(!is_dalphabet_symbol(copytext(word, l, l+1)))
+						word = copytext(word, 1, l)+copytext(word, l+1, 0)
+						goto Start
+
+
+
 				//Дальше нужно провести аналогию с базой данных и вставить сюда датум
 				var/datum/word/AI2 = word_from_db(same_word_from_db(word))//Нужно найти схожее слово, если не найдется это
-				if(AI2)
-					neuron_question_words += AI2
-					//Дальше цикл для каждого слова по определению его типа
-					//То есть из общего списка логов для слова извлекаем наиболее похожие с текущим
-					//Если таких не будет, то... Пока не знаю
+				if(AI2)	input_neurons += AI2//Добавляется еще один вход
+				var/pattern_log = {"U1:Enter|U2:AddFriend(U1)|U1:"привет"|U2:"привет""}//Лог случая, когда нужно здороваться
+				//В теории тут будет выбираться лог с наиболее подходящим к данному случаю порядком действий
+
+				//Нужен пример лога. ПОтом будем делать образование лога
+				//Дальше цикл для каждого слова по определению его типа
+				//То есть из общего списка логов для слова извлекаем наиболее похожие с текущим
+				//Если таких не будет, то... Пока не знаю
+
+
 
 				//	for(var/list/action_log in AI2.action_logs)
 				//		if(difference(action_log[1], input_log) < 0.5)

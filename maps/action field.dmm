@@ -1,35 +1,62 @@
 "a" = (/turf/floor,/area)
-"b" = (/obj/wall{tag = "icon-wall (WEST)"; icon_state = "wall"; dir = 8},/obj/wall{tag = "icon-wall (NORTH)"; icon_state = "wall"; dir = 1},/turf/floor,/area)
-"c" = (/obj/wall{tag = "icon-wall (NORTH)"; icon_state = "wall"; dir = 1},/turf/floor,/area)
-"d" = (/obj/wall{tag = "icon-wall (NORTH)"; icon_state = "wall"; dir = 1},/obj/wall{tag = "icon-wall (EAST)"; icon_state = "wall"; dir = 4},/turf/floor,/area)
-"e" = (/obj/wall{tag = "icon-wall (WEST)"; icon_state = "wall"; dir = 8},/turf/floor,/area)
-"f" = (/obj/wall{tag = "icon-wall (EAST)"; icon_state = "wall"; dir = 4},/turf/floor,/area)
+"b" = (/obj/wall/concrete/west,/obj/wall/concrete/north,/turf/floor,/area)
+"c" = (/obj/wall/concrete/north,/turf/floor,/area)
+"d" = (/obj/wall/concrete/north,/obj/wall/concrete/east,/turf/floor,/area)
+"e" = (/obj/wall/concrete/west,/turf/floor,/area)
+"f" = (/obj/wall/concrete/east,/turf/floor,/area)
 "g" = (/obj/energy_trigger,/turf/floor,/area)
 "h" = (/mob/ai,/turf/floor,/area)
 "i" = (/mob/player,/turf/floor,/area)
-"j" = (/obj/wall{tag = "icon-wall (WEST)"; icon_state = "wall"; dir = 8},/obj/wall,/turf/floor,/area)
-"k" = (/obj/wall,/turf/floor,/area)
-"l" = (/obj/wall,/obj/wall{tag = "icon-wall (EAST)"; icon_state = "wall"; dir = 4},/turf/floor,/area)
+"j" = (/obj/wall/concrete/south,/obj/wall/concrete/west,/turf/floor,/area)
+"k" = (/obj/wall/concrete/south,/turf/floor,/area)
+"l" = (/obj/wall/concrete/south,/obj/wall/concrete/east,/turf/floor,/area)
+"m" = (/turf/ground/darkgrass,/turf/floor,/turf/ground/darkgrass,/area)
+"n" = (/turf/ground/darkgrass,/area)
+"o" = (/turf/ground/darkgrass,/turf/ground/lakewater,/area)
+"p" = (/turf/ground/darkgrass,/turf/floor,/obj/plant/plant1,/turf/ground/darkgrass,/area)
+"q" = (/turf/ground/darkgrass,/turf/floor,/turf/ground/darkgrass,/turf/ground/lakewater,/area)
+"r" = (/turf/ground/darkgrass,/turf/floor,/obj/plant/plant5,/turf/ground/darkgrass,/area)
+"s" = (/turf/floor,/turf/ground/lakewater,/turf/floor,/turf/ground/lakewater,/turf/floor,/area)
+"t" = (/turf/floor,/turf/ground/darkgrass,/turf/floor,/turf/ground/darkgrass,/turf/floor,/area)
+"u" = (/turf/ground/lakewater,/turf/floor,/turf/ground/darkgrass,/area)
+"v" = (/turf/floor,/turf/ground/lakewater,/turf/floor/plate,/turf/floor,/area)
+"w" = (/turf/ground/darkgrass,/turf/ground/lakewater,/turf/floor,/turf/ground/darkgrass,/area)
+"x" = (/turf/ground/darkgrass,/turf/floor,/obj/plant/plant6,/turf/ground/darkgrass,/area)
+"y" = (/turf/ground/darkgrass,/turf/floor,/obj/plant/plant2,/turf/ground/darkgrass,/area)
+"z" = (/turf/ground/darkgrass,/turf/floor,/obj/plant/plant3,/turf/ground/darkgrass,/area)
+"A" = (/turf/ground/darkgrass,/turf/floor,/obj/tree,/turf/ground/darkgrass,/area)
+"B" = (/turf/ground/darkgrass,/turf/floor,/obj/tree/dead,/turf/ground/darkgrass,/area)
+"C" = (/turf/ground/darkgrass,/turf/floor,/obj/tree/pine,/turf/ground/darkgrass,/area)
+"D" = (/obj/crate1,/turf/floor,/area)
+"E" = (/turf/ground/darkgrass,/turf/floor,/turf/ground/darkgrass,/obj/tree,/turf/ground/lakewater,/area)
+"F" = (/obj/crate2,/turf/floor,/area)
+"G" = (/obj/door{icon_state = "brown"; dir = 8},/turf/floor,/area)
+"H" = (/turf/ground/darkgrass,/turf/floor,/obj/plant/plant4,/turf/ground/darkgrass,/area)
+"I" = (/obj/plant/plant6,/turf/ground/darkgrass,/area)
+"J" = (/obj/plant/plant2,/obj/plant/plant4,/turf/ground/darkgrass,/area)
+"K" = (/obj/plant/plant4,/turf/ground/darkgrass,/area)
+"L" = (/turf/ground/darkgrass,/turf/floor,/obj/tree/larch,/turf/ground/darkgrass,/area)
+"M" = (/obj/plant/plant3,/turf/ground/darkgrass,/area)
 
 (1,1,1) = {"
-aaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaa
-aaaaabccccccccdaaaaa
-aaaaaeaaaaaaaafaaaaa
-aaaaaeaaagaaaafaaaaa
-aaaaaeaaaaaaaafaaaaa
-aaaaaeahaaaaiafaaaaa
-aaaaaaaaaaaaaafaaaaa
-aaaaaeaaaaaaaafaaaaa
-aaaaaeaaaaaaaafaaaaa
-aaaaaeaaaaaaaafaaaaa
-aaaaajkkkkkkkklaaaaa
-aaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaa
-aaafaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaa
-aaaaaaaaaaaaaaaaaaaa
+mmmmmmmmmmmmmmmmmmmmnnnnnnnnnnnnnnnnnnnn
+mpmrmmmxmymmmmmmmmmmnnnnnnnnnnnnnnnnnnnn
+mmmpmmmmmrmzmmmmmmmmonnnnnnnnnnonnnnnnnn
+mmmymmAmpmzmmxBmmmmmnnnonnnnnnnnnnonnnnn
+Cmprymmmmmmmmmmmmmmmononnnnnonnnnnnnnnnn
+mmqmmbccccccccdmAmmmnonnnnoooonnnnnnnnnn
+mmmmmeaaaDaaaafmmmzmnonoooooooooooonnnnn
+mEmrmeaFagaaaafmmmmmnoooooooooooooonnnnn
+mqqmmeaaaaaaaafmmmmmnnooooooooooooonnnnn
+mqqqmGiaasaahafmmmmmnnooooooooooooonnnnn
+mqqmmeaaatvaaafmmBmmnnnoooooooooooonnnnn
+mmmmmeaaaaaaaafmzmmynnnoooooooooooonnnnn
+mmmmmeaaaaaaaafmmmHmnInoooooooooooonnnnn
+mCmmmeaaaaaaaafmmmmmnnnoooooooooooonnnnn
+mmmmmjkkkkkkkklmmmmmnJnnnnnooooooonnnnnn
+mmmuuuwmmmmmmmmmmBmmnnKnnnnooooooonnnnnn
+mmmuuuwmmxHmmmLmmymmMnnnnnnoooooooonnnnn
+mmmwwwwmmmmmmmmmmzmmnKnnnnnnnnnnnnnnonnn
+mmmwwwwmmmmmmmmmmmmHnnnnnnnnnnnnnnnnnnon
+mmmwwwwmmCmmmLmmmmmmnnnnnnnnnnnnnnnnnnnn
 "}

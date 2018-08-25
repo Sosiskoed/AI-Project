@@ -4,6 +4,7 @@ atom
 			sleep(5)
 			if(text)	for(var/atom/A in hearers())
 				A.Hear(txt, src)
+			world.log << txt
 
 	movable/Move()
 		..()
@@ -60,7 +61,7 @@ mob
 	icon = 'icons/mobs.dmi'
 
 	player
-		icon_state = "player"
+		icon_state = "pony_stand"
 
 	verb/test_time(var/num as num)
 		usr << "[time2text(world.timeofday)] - [time2text(world.timeofday-num)]"
