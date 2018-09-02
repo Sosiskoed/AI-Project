@@ -9,6 +9,248 @@ mob/Login()
 	usr << output(main_menu_html, "browser_setup")
 	..()
 
+/client/Topic(href, href_list[])
+	switch(href_list["catalog"])
+		if("strength")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+
+		if("dexterity")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+		if("intellegency")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+
+		if("health")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+
+		if("will")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+		if("fear")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+
+
+		if("speed")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+
+		if("move")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+		if("dodge")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+
+
+		if("weight")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+
+
+		if("hear")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+
+		if("vision")
+			if(href_list["action"]=="remove")
+				label1
+			else
+				label2
+
+
+
+
+		if("sex")
+			switch(href_list["action"])
+				if("male")
+					label1
+				if("female")
+					label2
+				if("neutral")
+					label3
+
+
+
+		if("bodyweight")
+			switch(href_list["action"])
+				if("hudoy")
+					label1
+				if("med")
+					label2
+				if("fat")
+					label3
+				if("VFat")
+					label4
+				if("VVFat")
+					label5
+
+
+
+		if("bodytall")
+			switch(href_list["action"])
+				if("vshrt")
+					label1
+				if("shrt")
+					label2
+				if("med")
+					label3
+				if("tall")
+					label4
+				if("vtal")
+					label5
+
+
+
+
+		if("age")
+			switch(href_list["action"])
+				if("baby")
+					label1
+				if("child")
+					label2
+				if("mature")
+					label3
+				if("old")
+					label4
+				if("vold")
+					label5
+
+
+		if("place")
+			switch(href_list["action"])
+				if("planet")
+					label1
+				if("country")
+					label2
+				if("locality")
+					label3
+
+
+
+
+		if("appearence")
+			switch(href_list["action"])
+				if("furcolor")
+					label1
+				if("manecolor")
+					label2
+				if("manestyle")
+					label3
+				if("tailcolor")
+					label4
+				if("tailstyle")
+					label5
+				if("cutie")
+					label6
+
+
+
+
+		if("scars")
+			switch(href_list["action"])
+				if("sc1")
+					label1
+				if("sc2")
+					label2
+				if("newscr")
+					label3
+
+
+		if("tattoo")
+			switch(href_list["action"])
+				if("T1")
+					label1
+				if("T2")
+					label2
+				if("T3")
+					label3
+				if("T4")
+					label4
+				if("T5")
+					label5
+				if("Tnew")
+					label6
+
+		if("bodyweightw")
+			switch(href_list["action"])
+				if("hudoy")
+					label1
+				if("med")
+					label2
+				if("fat")
+					label3
+				if("VFat")
+					label4
+				if("VVFat")
+					label5
+
+		if("char")
+			switch(href_list["action"])
+				if("char1")
+					label1
+				if("char2")
+					label2
+				if("char3")
+					label3
+
+
+
+			if("menu")
+			switch(href_list["action"])
+				if("start")
+					label1
+				if("options")
+					label2
+				if("exit")
+					label3
 
 
 /* type="text/css"
