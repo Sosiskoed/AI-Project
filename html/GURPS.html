@@ -1,0 +1,1085 @@
+<!Doctype HTML>
+<html>
+	<head>
+		<meta charset="utf-8 bom">
+		<title>GURPS charsheet</title>
+		<link rel="stylesheet" type="text/css" href="GURPS.css"/>
+		
+		<!-- Start: injected by Adguard -->
+		<script src="//local.adguard.com/adguard-ajax-api/injections/content-script.js?ts=63665955688516&amp;domain=cdn.discordapp.com&amp;mask=111" nonce="3d5e07654d554839b8272e98807bdd67" type="text/javascript"></script>
+		<script src="//local.adguard.com/adguard-ajax-api/injections/userscripts.js?ts=63664862425769&name=Adguard%20Assistant%20Beta&name=Popup%20Blocker%20by%20AdGuard%20(Beta)&name=Popup%20Blocker%20by%20AdGuard" nonce="3d5e07654d554839b8272e98807bdd67" type="text/javascript"></script>
+
+		<!-- End: injected by Adguard -->
+	</head>
+	<body>
+		<table bgcolor=#EDD990 width=100%>
+			<tr border=1>  <!-- Тулбар для возврата в главное меню и прочих метадействий -->
+				<td width=2%>1</td> <td bgcolor=#DDDDDD>2</td>
+			</tr>
+		</table>
+		<table class="main_tab" cellspacing=0 border=0 width=100% height=92%>
+			<tr>
+				<td width=60% height=100% valign=top> <!-- Блок интерфейса с настройками для создания персонажа -->
+					<div class="tabs">
+						<input type="radio" name="inset" value="" id="tab_1" checked>
+						<label for="tab_1">Локация</label>
+
+						<input type="radio" name="inset" value="" id="tab_2">
+						<label for="tab_2">Внешность</label>
+
+						<input type="radio" name="inset" value="" id="tab_3">
+						<label for="tab_3">Навыки</label>
+
+						<input type="radio" name="inset" value="" id="tab_4">
+						<label for="tab_4">Снаряжение</label>
+
+						<table height=94% width=100% border=1 id="txt_1" hidden>
+							<tr>
+								<td id="map">
+									<div id="place">
+										<p>Planet: <span class="place">...</span></p>
+										<p>Country: <span class="place">...</span></p>
+										<p>Locality: <span class="place">...</span></p>
+									</div>
+									<hr>
+									Map
+								</td> 
+								<td id="templates">
+									<div>
+										<h3>Race Template</h3>
+										<p>Description</p>
+									</div>
+									<hr>
+									<div>
+										<h3>Character Template</h3>
+										<p>Description</p>
+									</div>
+								</td>
+							</tr>
+						</table>
+						<table height=94% width=100% border=1 id="txt_2" hidden>
+							<tr>
+								<td height=87% width=100%>
+									<table height=100% width=100%>
+										<tr>
+											<td width=50%>
+												<table height=100% width=100% border=1>
+													<tr>
+														<td height=3%>
+															<table border=1 width=100%>
+																<tr>
+																	<td width=33%>HP:  &lt; 11 &gt; [0]</td>
+																	<td width=33%>FP:  &lt; 9 &gt; [-6]</td>
+																	<td border=1>MR:  &lt; 15 &gt; [10]</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td height=10%>
+															<table width=100%>
+																<tr height=3%>
+																	<td width=1%>Strength</td> <td>(ST):</td>  
+																	<td width=1%>&lt;</td> <td width=1% align=center>11</td> <td>&gt;</td> <td align=right>[10]</td>
+																</tr>
+																<tr>
+																	<td width=1%>Dexterity</td> <td>(DX):</td>  
+																	<td>&lt;</td> <td width=1% align=center>9</td> <td>&gt;</td> <td align=right>[-20]</td>
+																</tr>
+																<tr>
+																	<td>Intellegency</td> <td>(IQ):</td>  
+																	<td>&lt;</td> <td width=1% align=center>10</td> <td>&gt;</td> <td align=right>[ 0 ]</td>
+																</tr>
+																<tr>
+																	<td width=1%>Health</td> <td>(HT):</td> 
+																	<td>&lt;</td> <td width=1% align=center>12</td> <td>&gt;</td> <td align=right>[ 0 ]</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td align=center valign=top width=100% height=60%>
+															<table width=100% height=50% valign=top>
+																<tr style="vertical-align: bottom;"> 
+																	<td width=23%>Will  </td> <td>(P):</td>  
+																	<td align=right>&lt;</td> <td align=center>11</td> <td>&gt;</td> <td align=right>[10]</td>
+																</tr>
+																<tr style="vertical-align: top;">              
+																	<td>Fear  </td> <td>(P):</td>  
+																	<td align=right>&lt;</td> <td align=center>11</td> <td>&gt;</td> <td align=right>[10]</td>
+																</tr>
+																<tr style="vertical-align: bottom;">           
+																	<td style="padding-top: 3%;">Speed </td> <td>(P):</td>  
+																	<td align=right>&lt;</td> <td width=1% align=center>11</td> <td>&gt;</td> <td align=right>[10]</td>
+																</tr>
+																<tr  style="vertical-align: middle;" height=1%> 
+																	<td>Move  </td> <td>(P):</td> 
+																	<td align=right>&lt;</td> <td align=center>11</td> <td>&gt;</td> <td align=right>[10]</td>
+																</tr>
+																<tr style="vertical-align: top;">              
+																	<td style="padding-bottom: 3%;">Dodge </td> <td>(P):</td>  
+																	<td align=right>&lt;</td> <td align=center>11</td> <td>&gt;</td> <td align=right>[10]</td>
+																</tr>
+																<tr style="vertical-align: middle;">           
+																	<td>Weight</td> <td>(P):</td>  
+																	<td align=right>&lt;</td> <td align=center>11</td> <td>&gt;</td> <td align=right>[10]</td>
+																</tr>
+															</table>
+															<table width=93% height=15%>
+																<tr>
+																	<td height=1%> <hr> </td>
+																</tr>
+																<tr>
+																	<td valign=top align=center>Perseption</td>
+																</tr>
+															</table>
+															<table height=20% width=100%>
+																<tr height=1%>     
+																	<td width=23%>Hear  </td> <td>(P):</td> 
+																	<td align=right><</td> <td width=1% align=center>11</td> <td>></td> <td align=right>[10]</td></tr>
+																<tr valign=top>    
+																	<td>Vision</td> <td>(P):</td>  
+																	<td align=right>&lt;</td> <td width=1% align=center>11</td> <td>&gt;</td> <td align=right>[10]</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+											<td>
+												<table height=100% width=100% border=1>
+													<tr height=28%>
+														<td valign=middle>
+															<table height=100% width=100%>
+																<tr height=20% valign=bottom>
+																	<td width=100%>
+																		<table height=100% width=100%>
+																			<tr>
+																				<td width=49%>Gender:</td>
+																				<td width=18% align=center>Male</td>
+																				<td width=18% align=center>Female</td>
+																				<td width=18% align=center>Neutral</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+																<tr height=20% valign=middle>
+																	<td width=100%>
+																		<table height=100% width=100%>
+																			<tr>
+																				<td width=50%>Constitution:</td>
+																				<td width=10% align=center>Hud</td>
+																				<td width=10% align=center>Med</td>
+																				<td width=10% align=center>Fat</td>
+																				<td width=10% align=center>VFat</td>
+																				<td width=10% align=center>VVFat</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+																<tr height=60%>
+																	<td width=100%>
+																		<table height=100% width=100%>
+																			<tr valign=middle>
+																				<td width=20%  style="padding-top: 3%;">Tall:  </td> <td width=20%>1.01</td>
+																				<td align=center>VShrt-Short-Med-Tall-VTall</td>
+																			</tr>
+																			<tr valign=middle>
+																				<td style="padding-top: 3%;">Weight:          </td>
+																				<td>65           </td> <td align=center>Hud-Med-Fat-VFat-VVFat    </td>
+																			</tr>
+																			<tr valign=middle>
+																				<td style="padding-top: 3%;">Age:             </td> <td>23           </td> 
+																				<td align=center>Baby-Chld-Mat-Old-VOld    </td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<table height=100% width=100%>
+																<tr height=1%>
+																	<td width=100%>
+																		<table height=100% width=100%>
+																			<tr>
+																				<td width=25%>Fur color:</td> <td>COLOR</td>
+																			</tr>
+																			<tr>
+																				<td>Mane:     </td> <td>COLOR</td> <td align=left>Elvis Presley's Style</td>
+																			</tr>
+																			<tr>
+																				<td>Tail:     </td> <td>COLOR</td> <td align=left>Lyra's Style</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+																<tr>
+																	<td width=100%>
+																		<table height=100% width=100%>
+																			<tr>
+																				<td width=25%>Cutiemark:</td>
+																				<td align=left>CUTIE</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+																<tr height=40%>
+																	<td width=100%>
+																		<table width=100% height=100%>
+																			<tr valign=medium align=left>
+																				<td width=25%>Scars: </td> <td width=10%>S1</td> <td width=10%>S2</td> <td width=10% align=center>ADD</td>  <td width=10%>  </td><td width=10%>  </td> <td width=10%></td> <td width=15%></td>
+																			</tr>
+																			<tr valign=medium align=left>
+																				<td>Tattoo:</td> <td>T1</td> <td>T2</td> <td>T3</td> <td>T4</td> <td>T5</td> <td width=15% align=center>ADD</td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<table height=100% width=100%>
+																<tr>
+																	<td align=center valign=top>Prostheses and wounds</td>
+																</tr>
+																<tr height=90%>
+																	<td width=100%>
+																		<table height=100% width=100% border=1>
+																			<tr>
+																				<td width=25%>Head</td> 
+																				<td width=20%>21 teeth</td>
+																				<td width=25%></td> 
+																				<td width=20%></td>
+																			</tr>
+																			<tr>
+																				<td>Body</td>        
+																				<td>        </td>
+																				<td	  ></td> 
+																				<td	      ></td>
+																			</tr>
+																			<tr>
+																				<td>Left foreleg</td> 
+																				<td>        </td>
+																				<td></td> 
+																				<td></td>
+																			</tr>
+																			<tr>
+																				<td>Right forehoof</td>
+																				<td>        </td>
+																				<td></td> 
+																				<td></td>
+																			</tr>
+																		</table>
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+						<table height=94% width=100% border=1 id="txt_3" hidden>
+							<tr>
+								<td>
+									<table id="skill-sections">
+										<tr>
+											<td>
+												<div class="skill-tabs"> <!-- Раздел с вкладками -->
+													<input id="skill-tab1" type="radio" name="skill-tabs" checked>
+													<label for="skill-tab1" title="Основное">Main</label>
+ 
+													<input id="skill-tab2" type="radio" name="skill-tabs">
+													<label for="skill-tab2" title="Техники">Techniques</label>
+ 
+													<input id="skill-tab3" type="radio" name="skill-tabs">
+													<label for="skill-tab3" title="Алхимия">Alchemy</label>
+ 
+													<input id="skill-tab4" type="radio" name="skill-tabs">
+													<label for="skill-tab4" title="Книга магии">Spellbook</label>
+ 
+													<section id="skill-txt_1">
+														<div>
+															<p>Languages</p>
+															<table>
+																<tr>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr>
+																					<td colspan="2">Broken</td> <!-- Ячейка, шириной в две -->
+																				</tr>
+																				<tr class="subtitle"> <!-- Строка с наименованиями ячеек -->
+																					<td>Name</td> <td>Points</td>
+																				</tr>
+																				<tr> <!-- Эта и последующие строки (надо создать), а также подобные - для заполнения -->
+																					<td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr>
+																					<td colspan="2">Accented</td>
+																				</tr>
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr>
+																					<td colspan="2">Native</td> 
+																				</tr>
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																</tr>
+															</table>
+														</div>
+														<hr>
+														<div>
+															<table>
+																<tr>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr>
+																					<td colspan="2">Advantages</td> 
+																				</tr>
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr>
+																					<td colspan="2">Disadvantages</td> 
+																				</tr>
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																</tr>
+															</table>
+														</div>
+														<hr>
+														<div class="skills">
+															<p>Skills</p>
+															<table>
+																<tr>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr class="subtitle"> 
+																					<td>Name</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																</tr>
+															</table>
+														</div>	
+													</section>  
+													<section id="skill-txt_2">
+														<div class="skills">
+															<p>Techniques</p>
+															<table>
+																<tr>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Main skills</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Main skills</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Main skills</td> <td>Points</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																</tr>
+															</table>
+														</div>	
+													</section> 
+													<section id="skill-txt_3">
+														<div class="skills">
+															<p>Alchemy</p>
+															<table>
+																<tr>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Duration</td> 
+																					<td>Form</td> <td>Cost</td> 
+																					<td>Ingredients</td> <td>Time to cooking</td> 
+																					<td>Prerequisites</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>......</td>
+																					<td>......</td> <td>...</td>
+																					<td>......</td> <td>......</td> <td>......</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>	
+																</tr>
+															</table>
+														</div>
+													</section> 
+													<section id="skill-txt_4">
+														<div class="skills">
+															<p>Spells</p>
+															<table>
+																<tr>
+																	<td class="block_name">
+																		<div class="skill_type">
+																			<table class="content">
+																				<tr class="subtitle">
+																					<td>Name</td> <td>Classes</td> 
+																					<td>Duration</td> <td>Cost</td> 
+																					<td>Time to Cast</td> <td>Prerequisites</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>......</td>
+																					<td>......</td> <td>...</td>
+																					<td>......</td> <td>......</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>	
+																</tr>
+															</table>
+														</div>
+													</section>    
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+						<table height=94% width=100% border=1 id="txt_4" hidden>
+							<tr>
+								<td>
+									<table id="inv-section">
+										<tr>
+											<td>
+												<div class="inv-tabs"> <!-- Раздел с вкладками -->
+													<input id="inv-tab1" type="radio" name="inv-tabs" checked>
+													<label for="inv-tab1" title="Оружие">Weapon</label>
+ 
+													<input id="inv-tab2" type="radio" name="inv-tabs">
+													<label for="inv-tab2" title="Броня">Armor&amp;Shields</label>
+ 
+													<input id="inv-tab3" type="radio" name="inv-tabs">
+													<label for="inv-tab3" title="Прочее">Other</label>
+										
+													<div id="money">
+														<p>Money</p>
+														<table>
+															<tr>
+																<td class="block_name">
+																	<div class="inv_type">
+																		<table class="content">
+																			<tr class="subtitle">
+																				<td>Name</td> <td>Value</td> <td>Weight</td>
+																			</tr>
+																			<tr>
+																				<td>......</td> <td>......</td> <td>...</td>
+																			</tr>
+																		</table>
+																	</div>
+																</td>
+															</tr>
+														</table>
+													</div>
+													<section id="inv-txt_1">
+														<div class="weapon">
+															<input id="weapon-tab1" type="radio" name="weapon" checked>
+															<label for="weapon-tab1" title="Контактное оружие">Melee<br> Weapon</label>
+ 
+															<input id="weapon-tab2" type="radio" name="weapon">
+															<label for="weapon-tab2" title="Холодное дистанционное оружие">Muscle-Powered<br> Ranged Weapon</label>
+ 
+															<input id="weapon-tab3" type="radio" name="weapon">
+															<label for="weapon-tab3" title="Ручные гранаты и зажигательные средства">Hand Grenades and<br> Incendiaries</label>
+															
+															<input id="weapon-tab4" type="radio" name="weapon">
+															<label for="weapon-tab4" title="Огнестрельное оружие" id="guns"> <br>Firearms<br>  </label>
+															
+															<input id="weapon-tab5" type="radio" name="weapon">
+															<label for="weapon-tab5" title="Тяжёлое оружие">Heavy<br> Weapons</label>
+													
+															<section id="weapon-txt_1">
+																<div>
+																	<p>Melee Weapon</p>
+																	<table>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Type</td> <td>Weapon</td> <td>Damage</td>
+																							<td>Reach</td> <td>Parry</td> <td>Cost</td> <td>Weight</td>
+																							<td>ST</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</section>
+															<section id="weapon-txt_2">
+																<div>
+																	<p>Muscle-Powered Ranged Weapon</p>
+																	<table>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Type</td> <td>Weapon</td> <td>Damage</td>
+																							<td>Acc</td> <td>Range</td> <td>RoF</td> <td>Shots</td>
+																							<td>Cost</td> <td>Weight</td> <td>ST</td> <td>Bulk</td>
+																							<td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</section>
+															<section id="weapon-txt_3">
+																<div>
+																	<p>Hand Grenades and Incendiaries</p>
+																	<table>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Type</td> <td>Weapon</td> <td>Damage</td>
+																							<td>Fuse</td> <td>Cost</td> <td>Weight</td> <td>LC</td>
+																							<td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</section>
+															<section id="weapon-txt_4">
+																<div>
+																	<p>Firearms</p>
+																	<table>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Type</td> <td>Weapon</td> <td>Damage</td>
+																							<td>Acc</td> <td>Range</td> <td>RoF</td> <td>Shots</td>
+																							<td>Cost</td> <td>Weight</td> <td>ST</td> <td>Bulk</td>
+																							<td>Rcl</td> <td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</section>
+															<section id="weapon-txt_5">
+																<div>
+																	<p>Heavy Weapons</p>
+																	<table>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Type</td> <td>Weapon</td> <td>Damage</td>
+																							<td>Acc</td> <td>Range</td> <td>RoF</td> <td>Shots</td>
+																							<td>Cost</td> <td>Weight</td> <td>ST</td> <td>Bulk</td>
+																							<td>Rcl</td> <td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</section>
+														</div>
+													</section>
+													<section id="inv-txt_2">
+														<div class="armor">
+															<input id="armor-tab1" type="radio" name="armor" checked>
+															<label for="armor-tab1" title="Низкотехнологичная броня">Low-Tech Armor</label>
+ 
+															<input id="armor-tab2" type="radio" name="armor">
+															<label for="armor-tab2" title="Высоко- и ультратехнологичная броня">High- and Ultra-Tech Armor</label>
+ 
+															<input id="armor-tab3" type="radio" name="armor">
+															<label for="armor-tab3" title="Броня для лошадей">Horse Armor</label>
+															
+															<input id="armor-tab4" type="radio" name="armor">
+															<label for="armor-tab4" title="Щиты">Shields</label>
+													
+															<section id="armor-txt_1">	
+																<div>
+																	<table>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Body Armor</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Limb Armor</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Headgear</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Gloves</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Footwear</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</section>
+															<section id="armor-txt_2">
+																<div>
+																	<table>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Body Armor</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Gloves and Footwear</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Headgear</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Environment Suits</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</section>
+															<section id="armor-txt_3">
+																<div>
+																	<table>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Face Masks</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Head/Neck Armor</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Partial Barding</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Full Barding</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>Leggings</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Armor</td> <td>Location</td>
+																							<td>DR</td> <td>Cost</td> <td>Weight</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</section>
+															<section id="armor-txt_4">
+																<div>
+																	<table>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>CLOAK (DX-5, Net-4, or Shield (any)-4)</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Shield</td> <td>DB</td>
+																							<td>Cost</td> <td>Weight</td> <td>DR/HP</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>SHIELD (DX-4, or other Shield at -2)</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Shield</td> <td>DB</td>
+																							<td>Cost</td> <td>Weight</td> <td>DR/HP</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td class="block_name">
+																				<div class="inv_type">
+																					<table class="content">
+																						<caption>SHIELD (FORCE) (DX-4, or other Shield at -2)</caption>
+																						<tr class="subtitle">
+																							<td>TL</td> <td>Shield</td> <td>DB</td>
+																							<td>Cost</td> <td>Weight</td> <td>DR/HP</td>
+																							<td>LC</td> <td>Notes</td>
+																						</tr>
+																						<tr>
+																							<td>......</td> <td>......</td> <td>...</td>
+																						</tr>
+																					</table>
+																				</div>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</section>
+														</div>
+													</section>
+													<section id="inv-txt_3">
+														<div>
+															<table>
+																<tr>
+																	<td class="block_name">
+																		<div class="inv_type">
+																			<table class="content">
+																				<caption>Other</caption>
+																				<tr class="subtitle">
+																					<td>TL</td> <td>Cost</td> <td>Weight</td>
+																					<td>LC</td> <td>Notes</td>
+																				</tr>
+																				<tr>
+																					<td>......</td> <td>......</td> <td>...</td>
+																				</tr>
+																			</table>
+																		</div>
+																	</td>
+																</tr>
+															</table>
+														</div>
+													</section>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td id="description">1</td>
+			</tr>
+		</table>
+	</body>
+</html>

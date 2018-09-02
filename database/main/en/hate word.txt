@@ -1,2 +1,6 @@
+fix it|90_100
+you sure|85_100
+what you mean|80_100
+why|70_100
+what|60_100
 
-len = 0

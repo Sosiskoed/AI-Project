@@ -8,7 +8,17 @@
 // BEGIN_FILE_DIR
 #define FILE_DIR .
 #define FILE_DIR "icons"
+#define FILE_DIR "icons/pony"
+#define FILE_DIR "icons/pony/female"
+#define FILE_DIR "icons/pony/female/Stand"
+#define FILE_DIR "icons/pony/female/Stand/south-west"
+#define FILE_DIR "icons/pony/female/Stand/south-west/1"
+#define FILE_DIR "icons/pony/female/Stand/west"
+#define FILE_DIR "icons/pony/female/Stand/west/1"
 #define FILE_DIR "icons/turfs"
+#define FILE_DIR "interface"
+#define FILE_DIR "interface/1"
+#define FILE_DIR "interface/1/browser-demo"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES
@@ -20,14 +30,21 @@
 #include "code\isomove.dm"
 #include "code\mobs.dm"
 #include "code\objects.dm"
+#include "code\planet_map.dm"
 #include "code\text_proc.dm"
 #include "code\turfs.dm"
 #include "code\AI\life.dm"
+#include "code\AI\log.dm"
 #include "code\AI\reactions.dm"
 #include "code\AI\search_path.dm"
 #include "code\AI\settings.dm"
 #include "code\AI\database\interactions.dm"
 #include "code\AI\database\saveload.dm"
+#include "code\galaxy_generator\planet\height_map.dm"
+#include "code\galaxy_generator\planet\humidity_map.dm"
+#include "code\galaxy_generator\planet\temperature_map.dm"
+#include "code\galaxy_generator\planet\water_map.dm"
+#include "code\GURPS\stats.dm"
 #include "maps\action field.dmm"
 // END_INCLUDE
 

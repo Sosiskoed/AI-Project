@@ -25,10 +25,23 @@ var/list/digits				= list(//48-57
 )
 
 
+/mob/verb/rhtml_decode(msg as text)
+	msg = replacetext(msg, "<", "&lt;")
+	msg = replacetext(msg, ">", "&gt;")
+	msg = replacetext(msg, "я", "&#255;")
+	world << msg
+	usr << browse(msg, "window=test_text;size=300x300")
 
 
-
+var/sleeper_timer = 0
 proc
+	Sleeper(var/time_of_sleep = 1, var/frequency=2500)
+		if(sleeper_timer%frequency == 0) //Замедлитель
+			sleep(time_of_sleep)
+		sleeper_timer++
+
+
+
 	ExText(var/text)//Вставка заглавной буквы
 		var/t = text2ascii(copytext(text, 1, 2))
 		if(t in ru_alphabet_low+eng_alphabet_low)
@@ -68,5 +81,21 @@ proc
 				text = copytext(text, 1, i)+copytext(text, i+2)
 			return text
 
-	distance(var/atom/A, var/atom/B)
-		return sqrt( (A.x-B.x)*(A.x-B.x) + (A.y-B.y)*(A.y-B.y) )
+	distance(var/A, var/B, var/x2, var/y2)	//Может быть ошибка в нахождении пути
+		if(istype(A, /atom) && istype(B, /atom))
+			return sqrt( (A:x-B:x)*(A:x-B:x) + (A:y-B:y)*(A:y-B:y) )
+		else
+			return sqrt( (A-x2)*(A-x2) + (A-y2)*(A-y2) )
+
+	math_distance(var/x1, var/x2, var/y1, var/y2)
+		return sqrt( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) )
+
+	is_dalphabet_symbol(var/char)
+		var/cnum
+		if(isnum(char))		cnum = char
+		else				cnum = text2ascii(char)
+
+		if(cnum in (ru_alphabet_low+ru_alphabet_high+ru_alphabet_extra + eng_alphabet_low+eng_alphabet_high+eng_alphabet_extra+digits) )
+			return 1
+		else
+			return 0

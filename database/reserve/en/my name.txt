@@ -1,5 +1,5 @@
 ai|90_100
 art|85_100
-artifical intellegence|70_100
+artifical intelligence|70_100
 int|60_100
 friend|50_100

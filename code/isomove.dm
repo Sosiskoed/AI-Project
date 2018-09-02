@@ -10,7 +10,7 @@ mob/New()
 
 
 mob
-	var/dirs = ""
+	//var/dirs = ""
 	var/in_move = 0
 
 	//proc

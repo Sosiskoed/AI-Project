@@ -13,7 +13,7 @@ proc/save_aiknowledge()
 				if(!subWORD || probe(WORD) < probe(subWORD))
 					sublist += WORD
 				else
-					sublist = WORD + sublist
+					sublist.Insert(1, WORD)
 
 			save_simplelist(sublist, "database/main/[AI0.language]/[category.name].txt")
 
@@ -24,17 +24,11 @@ proc/save_aiknowledge()
 
 
 proc/save_simplelist(var/list/L, var/savepath)
-	var/savefile/F = new() //Сперва создаем хранилище для данных в оперативке
-
-	F["len"] = L.len
-
-	var/i = 1
-	for(var/element in L)
-		F[i] << L //Записываем что-то в парном виде в этот "файл"
-		i++
-
-	F.ExportText("/",file(savepath)) //Указываем место сохранения. "/" - точка отсчета
-
+	var/T
+	for(var/datum/word/W in L)
+		T += "[W.word]|[W.success]_[W.all]\n"
+	fdel(savepath)
+	text2file(T, savepath)
 
 
 
@@ -55,27 +49,27 @@ proc/load_aiknowledge()
 			var/datum/word_category/AI1 = new
 			AI1.name = category
 			AI1.language = AI0.language
-			AI1.words = list_from_file("database/[AIDB_from_reserve ? "reserve" : "main"]/[AI1.language]/[category].txt")
+			AI1.words = list_from_file("database/[AIDB_from_reserve ? "reserve" : "main"]/[AI1.language]/[category].txt", category, AI0.language)
 			for(var/datum/word/AI2 in AI1.words)
 				AI2.language = AI1.language
 			AI0.categories += AI1
 
 
 
-proc/list_from_file(var/savepath)//Извлечения БД->Лист по диапазону вероятности
-	var/savefile/F = new()
-	F.ImportText("/",file(savepath))
+proc/list_from_file(var/savepath, var/ctgr, var/lang)//Извлечения БД->Лист по диапазону вероятности
+	var/list/words = list()
 
-	var/Flen
-	Flen << F["len"]
-	var/list/return_list = list()
+	for(var/S in splittext(file2text(savepath), "\n"))
+		var/datum/word/WORD = new/datum/word()
+		WORD.word 		= copytext(S, 1, findtext(S, "|"))
+		WORD.success 	= text2num(copytext(S, findtext(S, "|")+1, findtext(S, "_")))
+		WORD.all		= text2num(copytext(S, findtext(S, "_")+1))
+		WORD.language = lang
+		WORD.category = ctgr
+		if(WORD.word && WORD.success && WORD.all && WORD.language && WORD.category)
+			words += WORD
 
-	for(var/i=1, i<=Flen, i++)
-		var/datum/word/WORD
-		WORD << F[i]
-		return_list += WORD
-
-	return return_list
+	return words
 
 
 

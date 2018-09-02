@@ -1,5 +1,64 @@
+proc/DistCenter(var/x1, var/y1, var/x2, var/y2)
+	return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2))
+
+proc/SmoothIcon(var/icon/I_add, var/icon/I_base, var/direct)
+	I_add.Flip(WEST)
+	var/Xm[2]//Минимумы и максимумы координат
+	var/Ym[2]
+
+	switch(direct) //Пришлось выкинуть формулы определения координат, потому что они не годятся для изометрии
+		if(NORTH) //Здесь тайл просто делится на несколько кусков
+			Xm[1] = 33
+			Xm[2] = 63
+			Ym[1] = 17
+			Ym[2] = 32
+		if(WEST)
+			Xm[1] = 2
+			Xm[2] = 32
+			Ym[1] = 17
+			Ym[2] = 32
+		if(EAST)
+			Xm[1] = 33
+			Xm[2] = 63
+			Ym[1] = 1
+			Ym[2] = 16
+		if(SOUTH)
+			Xm[1] = 2
+			Xm[2] = 32
+			Ym[1] = 1
+			Ym[2] = 16
+		if(NORTHWEST)
+			Xm[1] = 2
+			Xm[2] = 63
+			Ym[1] = 17
+			Ym[2] = 32
+		if(NORTHEAST)
+			Xm[1] = 33
+			Xm[2] = 63
+			Ym[1] = 1
+			Ym[2] = 32
+		if(SOUTHEAST)
+			Xm[1] = 2
+			Xm[2] = 63
+			Ym[1] = 1
+			Ym[2] = 16
+		if(SOUTHWEST)
+			Xm[1] = 2
+			Xm[2] = 32
+			Ym[1] = 1
+			Ym[2] = 32
+
+	for(var/x=Xm[1], x<=Xm[2], x++)	for(var/y=Ym[1], y<=Ym[2], y++)
+		if(!prob(DistCenter(x, y, 32, 16)))	continue
+		if(I_add.GetPixel(x,y))
+			I_base.DrawBox(I_add.GetPixel(x,y),x,y)
+
+	return I_base
+
+
 turf
 	icon = 'icons/turfs/floor.dmi'
+	var/smooth
 
 	floor
 		icon_state = "floor"
@@ -11,6 +70,47 @@ turf
 		upload
 			icon_state = "upload"
 
+
+	ground //Размазанные турфы
+		icon = 'icons/ground.dmi'
+		smooth = 1
+		darkgrass
+			icon_state = "darkgrass1"
+
+			New()
+				icon_state = "darkgrass[rand(1, 16)]"
+				..()
+
+		lakewater
+			icon_state = "lakewater1"
+
+			New()
+				icon_state = "lakewater[rand(1, 16)]"
+				..()
+
+
+		New()
+			..()
+			//Сперва нужно отсеять все крайние турфы
+			if(x!=1 || x!=world.maxx || x!=1 || y!=world.maxy)
+				//Сначала нужно определить рядом стоящие тайлы с тем же свойством
+				for(var/modX = -1, modX<=1, modX++)	for(var/modY = -1, modY<=1, modY++)
+					if(!modX && !modY)	continue
+					var/turf/ground/G = locate(x+modX, y+modY, z)
+					var/direct
+					if(G && G.smooth && !istype(G, src))
+						if(modX==-1 && modY==-1)	direct = SOUTHWEST
+						if(modX==-1 && modY==0)		direct = WEST
+						if(modX==-1 && modY==1)		direct = NORTHWEST
+
+						if(modX==0  && modY==-1)	direct = SOUTH
+						if(modX==0  && modY==1)		direct = NORTH
+
+						if(modX==1  && modY==-1)	direct = SOUTHEAST
+						if(modX==1  && modY==0)		direct = EAST
+						if(modX==1  && modY==1)		direct = NORTHEAST
+
+						icon = SmoothIcon(icon(G.icon, G.icon_state), icon(icon, icon_state), direct)
 
 
 obj
