@@ -1,0 +1,229 @@
+	body {
+		margin: 0;
+		font-size: medium;
+	}
+	
+	.tabs {height:100%; width:100%; padding:0px;}
+	.tabs>input {display: none;}
+	.tabs>div {
+		display: none;
+		padding: 38%;/*180px;*/
+		border:  1px solid #C0C0C0;
+		background: #FFFFFF;
+	}
+	.tabs>label {
+		display: inline-block;
+		padding: 3px;
+		margin: 0 -2px -1px 0;  /* отступы вкладок друг от друга */
+		text-align: center;
+		color: #666;
+		border: 1px solid #C0C0C0;
+		background: #E0E0E0;
+		cursor: pointer;
+	}
+	.tabs>input:checked+label {
+		color: #000;
+		border: 1px solid #C0C0C0;
+		border-bottom: 1px solid #9F9F9F;
+	}
+	table {border-collapse: collapse;}
+		#tab_1:checked ~ #txt_1,
+		#tab_2:checked ~ #txt_2,
+		#tab_3:checked ~ #txt_3,
+		#tab_4:checked ~ #txt_4 {display: table;}
+				
+	/* Базовый контейнер табов */		
+	.skill-tabs, .inv-tabs, .armor, .weapon {
+		min-width: 320px;
+		max-width: 80;
+		padding: 0px;
+		margin: 0 auto;
+	}
+	/* Стили секций с содержанием */
+	.skill-tabs>section, .inv-tabs>section {
+		min-height: 65vh;
+		display: none;
+		padding: 15px;
+		background: #fff;
+		border: 1px solid #ddd;
+	}
+	
+	.armor>section, .weapon>section {
+		display: none;
+	}
+	
+	.skill-tabs>section>p, .inv-tabs>section>p, .armor>section>p, .weapon>section>p  {
+		margin: 0 0 5px;
+		line-height: 1.5;
+		color: #383838;
+	/* прикрутим анимацию */
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+		-webkit-animation-name: fadeIn;
+		animation-name: fadeIn;
+	}
+	/* Описываем анимацию свойства opacity */
+ 
+	@-webkit-keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	/* Прячем чекбоксы */
+	.skill-tabs>input, .inv-tabs>input, .armor>input, .weapon>input {
+		display: none;
+		position: absolute;
+	}
+	/* Стили переключателей вкладок (табов) */
+	.skill-tabs>label, .inv-tabs>label, .armor>label, .weapon>label {
+		display: inline-block;
+		margin: 0 0 -1px;
+		padding: 9px 18px;
+		font-weight: 600;
+		text-align: center;
+		color: #aaa;
+		border: 0px solid #ddd;
+		border-width: 1px 1px 1px 1px;
+		background: #f1f1f1;
+		border-radius: 3px 3px 0 0;
+		font-size: 0.8em;
+	}
+	
+	#guns {
+		line-height: 0.78em;
+		padding-bottom: 0.9em;
+	}
+		
+	/* Изменения стиля переключателей вкладок при наведении */
+ 
+	.skill-tabs>label:hover, .inv-tabs>label:hover, .armor>label:hover, .weapon>label:hover {
+		color: #888;
+		cursor: pointer;
+	}
+	/* Стили для активной вкладки */
+	.skill-tabs>input:checked+label, .inv-tabs>input:checked+label, .armor>input:checked+label, .weapon>input:checked+label {
+		color: #555;
+		border-top: 1px solid #093;
+		border-bottom: 1px solid #fff;
+		background: #fff;
+	}
+	/* Активация секций с помощью псевдокласса :checked */
+	#skill-tab1:checked ~ #skill-txt_1, 
+	#skill-tab2:checked ~ #skill-txt_2, 
+	#skill-tab3:checked ~ #skill-txt_3, 
+	#skill-tab4:checked ~ #skill-txt_4 {display: block;}
+	
+	#inv-tab1:checked ~ #inv-txt_1, 
+	#inv-tab2:checked ~ #inv-txt_2, 
+	#inv-tab3:checked ~ #inv-txt_3, 
+	#inv-tab4:checked ~ #inv-txt_4 {display: block;}
+	
+	#armor-tab1:checked ~ #armor-txt_1, 
+	#armor-tab2:checked ~ #armor-txt_2, 
+	#armor-tab3:checked ~ #armor-txt_3, 
+	#armor-tab4:checked ~ #armor-txt_4 {display: block;}
+	
+	#weapon-tab1:checked ~ #weapon-txt_1, 
+	#weapon-tab2:checked ~ #weapon-txt_2, 
+	#weapon-tab3:checked ~ #weapon-txt_3,
+	#weapon-tab4:checked ~ #weapon-txt_4,
+	#weapon-tab5:checked ~ #weapon-txt_5 {display: block;}
+	
+	/*Правое поле для разделов*/
+	.skill_type, .inv_type, {
+		margin-right: 3em;
+		text-align: center;
+	}
+	
+	/*Расстягивает содержимое вкладок на всю ширину*/
+	#skill-sections, #inv-section {
+		width: 100%;
+	}
+	
+	/*Подзаголовки разделов (Main, Points, etc)*/
+	.subtitle td {
+		padding-top: 0.3em;
+		font-size: 0.8em;
+		height: 2em;
+		vertical-align: top;
+		text-decoration: underline;
+	}
+	
+	/*Расстягивает содержимое на всю ширину окна браузера*/
+	.main_tab {
+		min-height: 95vh;
+	}
+	.condbuttons {
+		vertical-align: middle;
+		height:24px;
+		width:24px;
+		background-color:black;
+		color: white;
+	}
+	/*Правила стиля для общего раздела описаний*/
+	#description {
+		height: 13vh;
+		padding: 0em 2em;
+		position: sticky; /*Закрепляет элемент, не давая ему прокручиваться*/
+		bottom: 0;
+		background: #FFF;
+	}
+	
+	/*Выравнивает по верхней границе содержимое разделов (иначе при неравномерном заполнении пунктов всё будет выглядеть криво)*/
+	.block_name {
+		vertical-align: top;
+	}
+	
+	/*Выравнивает содержимое разделов по центру ячеек*/
+	.subtitle>td {
+		padding: 0em 1em;
+	}
+	
+	/*Раздел с деньгами*/
+	#money {
+		padding: 15px;
+	}
+	/*Стили заголовков таблиц*/
+	caption {
+		text-align: center;
+		padding: 0.8em 0em;
+	}
+	
+	.content {
+		text-align: center;
+	}
+	
+	/*Стили карты*/
+	#map {
+		min-width: 25em;
+		text-align: center;
+		vertical-align: top;
+	}
+	
+	/*Шаблоны*/
+	#templates {
+		vertical-align: top;
+		padding: 1em;
+	}
+	
+	.place {
+		padding-left: 1em;
+	}
+	
+	#place {
+		text-align: left;
+		padding: 0.5em;
+	}
