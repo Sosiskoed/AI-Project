@@ -166,7 +166,13 @@
 	.main_tab {
 		min-height: 95vh;
 	}
-	
+	.condbuttons {
+		vertical-align: middle;
+		height:24px;
+		width:24px;
+		background-color:black;
+		color: white;
+	}
 	/*Правила стиля для общего раздела описаний*/
 	#description {
 		height: 13vh;
